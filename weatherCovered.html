@@ -7,6 +7,50 @@
     <title>Weather Covered</title>
 </head>
 <body>
+<!--nav for website title and search bar-->
+<nav class="navbar navbar-expand-lg">
+    <div class="navbar-left">
+        <a class="navbar_title" href="#">Weather Covered</a>
+    </div>
+    <div class="navbar-middle">
+        <form class="d-flex" role="search">
+            <input class="form-control me-4" type="search" placeholder="Search by City or Zipcode" aria-label="Search">
+            <button class="btn btn-outline-light" type="submit">Search</button>
+        </form>
+    </div>
+        <div class="navbar-right">
+            <ul class="navbar-nav">
+                <li class="">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Search on Map</a>
+                </li>
+            </ul>
+        </div>
+</nav>
+<!--current city-->
+<div class="currentCity" id="currentCity"></div>
+<!--Weather Time Frame-->
+<div>
+<ul class="nav justify-content-center">
+    <li class="nav-item">
+        <a class="nav-link active" aria-current="page" href="#">Current</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Hourly</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">Daily</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">16 days</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="#">30 days</a>
+    </li>
+</ul>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 <script src="key.js"></script>
