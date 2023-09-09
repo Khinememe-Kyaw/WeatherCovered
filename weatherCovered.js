@@ -45,10 +45,10 @@ function weatherInfo(lat, lon) {
                 let weatherIconClass = mapWeatherToIconClass(currentData.weather[0].main);
 
                 let cardHTML = `
-              <div class="five_days">
-                  <div class="card-date">${currentDay}, ${currentMonth} ${todayDate.getDate()}</div>
+              <div class="five_days" >
+                  <div class="card-date" style="font-size: 20px;">${currentDay}, ${currentMonth} ${todayDate.getDate()}</div>
                   <img src="${weatherIconClass}"/>
-                  <div class="card-temperature">${currentData.main.temp_max} °F / ${currentData.main.temp_min} °F</div>
+                  <div class="card-temperature" style="font-size: 20px;">${currentData.main.temp_max} °F / ${currentData.main.temp_min} °F</div>
                   <div class="card-city">${data.city.name}, ${data.city.country}</div>
                   <div class="card-description">Description: ${currentData.weather[0].description}</div>
                   <div class="card-humidity">Humidity: ${currentData.main.humidity}%</div>
@@ -56,9 +56,9 @@ function weatherInfo(lat, lon) {
                   <div class="card-pressure">Pressure: ${currentData.main.pressure}</div>
               </div>
             `;
-                // $(`#card-${i + 1}`).html(cardHTML);
-                $(`#card-${i + 1}`).html(cardHTML);
-                // marker.setPopup(popup).togglePopup();
+                $(`#card-${i+1}`).html(cardHTML);
+                popup.setHTML(cardHTML);
+                marker.setPopup(popup).togglePopup('');
             }
 
             $("#currentCity").html(`Current Location: ${data.city.name}, ${data.city.country}`);
@@ -105,13 +105,13 @@ function searchLocation(event) {
             console.log(data.city.coord.lon);
             geocode(input, accessToken).then(function (result) {
                 console.log(result);
-                var newMarker = new mapboxgl.Marker({
+                let newMarker = new mapboxgl.Marker({
                     draggable: true
                 }).setLngLat(result);
                 newMarker.addTo(weatherMap);
                 weatherMap.panTo({ lon: data.city.coord.lon, lat: data.city.coord.lat }, { duration: 5000 });
 
-                // Update the marker variable to the new marker
+                // Update the marker letiable to the new marker
                 marker = newMarker;
 
                 // Make the marker draggable
@@ -134,23 +134,23 @@ weatherMap.on('click', function (e) {
         marker.remove();
     }
     // Create a new marker at the clicked coordinates with draggable option
-    var newMarker = new mapboxgl.Marker({
+    let newMarker = new mapboxgl.Marker({
         draggable: true
     }).setLngLat(e.lngLat);
 
     newMarker.addTo(weatherMap);
 
-    // Update the marker variable to the new marker
+    // Update the marker letiable to the new marker
     marker = newMarker;
 
     // Make the marker draggable
     marker.on('dragend', function () {
         onDragEnd(marker.getLngLat());
     });
-
+    // let cardHTML = $(`#card-1`).html();
     // Add a popup to the marker
     let popup = new mapboxgl.Popup()
-        .setHTML('Click me for more info!')
+        .setHTML(cardHTML)
         .addTo(weatherMap);
 
     // Add a click event listener to the marker to open the popup

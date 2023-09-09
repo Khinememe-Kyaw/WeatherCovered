@@ -4,9 +4,10 @@
     --third--color: #2B7C85;
     --fouth--color: #c7e3dc;
     --primary--text: #ffffff;
+    --secondary--text: #0d0e0e;
 }
 body{
-    background-color:var(--fouth--color) ;
+    background-color:let(--fouth--color) ;
 }
 /* first navbar color*/
 .navbar {
@@ -128,9 +129,23 @@ body{
     width:100%;
     max-width: 320px;
     background: linear-gradient(135deg, #5FFBF1, #2D8F8A, #3B578C);
-    color: #fff;
+    color: var(--secondary--text);
     margin: 20px 5px;
     border-radius: 20px;
     padding: 40px 35px;
     text-align: center;
+}
+.mapboxgl-popup-content{
+    width:100%;
+    max-width: 420px;
+    background: linear-gradient(135deg, #056db9, #6de1da, #030b1a);
+    margin: 10px 5px;
+    border-radius: 20px;
+    padding: 20px 35px;
+    text-align: center;
+    font-size: 17px;
+    color: var(--secondary--text);
+}
+.mapboxgl-popup-content img{
+    width: 80px;
 }
